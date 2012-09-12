@@ -1,0 +1,29 @@
+<resources>
+
+    <string name="app_name">Notifier</string>
+    <string name="app_settings_name">Notifier Settings</string>
+    
+    <string name="loading">Loading…</string>
+    <string name="no_messages">No Messages</string>
+    
+    <string name="menu_clear">Clear All</string>
+    <string name="menu_settings">Settings</string>
+    
+    <string name="settings_alertHeader">Alert</string>
+    <string name="settings_clearHeader">On Notification Clear</string>
+    <string name="settings_serverHeader">GCM Server</string>
+    <string name="settings_reregister">Re-Register</string>
+    <string name="settings_flashLED">Flash LED</string>
+    <string name="settings_vibrate">Vibrate</string>
+    <string name="settings_useSound">Play Sound</string>
+    <string name="settings_chooseSound">Choose Sound</string>
+    <string name="settings_viewedOnClear">Mark as Read</string>
+    
+    <string name="update_intent">rickflail.messaging.notifier.UPDATE</string>
+    <string name="update_permission">rickflail.messaging.notifier.permission.UPDATE</string>
+    <string name="clear_intent">rickflail.messaging.notifier.CLEAR</string>
+    <string name="clear_permission">rickflail.messaging.notifier.permission.CLEAR</string> 
+        
+    <string name="prefs">Notifier_Messages</string>
+
+</resources>

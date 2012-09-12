@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <color name="read">#FFFFFFFF</color>
+    <color name="unread">#FF00FF00</color>
+    <color name="headerbg">#33FFFFFF</color>
+</resources>

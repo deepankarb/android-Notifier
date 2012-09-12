@@ -1,0 +1,20 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/darkdenim3"
+    android:fadingEdge="vertical" >
+        
+        <ListView
+            android:id="@+id/messageList"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:divider="@drawable/inset"
+            android:fadingEdge="vertical"
+            android:longClickable="false"
+            tools:listitem="@android:layout/simple_list_item_2" >
+            
+        </ListView>
+
+</RelativeLayout>

@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/settings"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/darkdenim3"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/alertHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headerbg"
+        android:paddingBottom="@dimen/padding_tiny"
+        android:paddingLeft="@dimen/padding_medium_large"
+        android:paddingTop="@dimen/padding_tiny"
+        android:text="@string/settings_alertHeader"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	<RelativeLayout
+	    android:id="@+id/relativeLayout1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+		<TextView
+		    android:id="@+id/labelFlashLED"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginLeft="20dp"
+		    android:text="@string/settings_flashLED"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+		<CheckBox
+		    android:id="@+id/checkBoxFlashLED"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginRight="20dp" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:id="@+id/relativeLayout2"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+
+
+		<TextView
+		    android:id="@+id/labelVibrate"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginLeft="20dp"
+		    android:text="@string/settings_vibrate"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+		<CheckBox
+		    android:id="@+id/checkBoxVibrate"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginRight="20dp" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:id="@+id/relativeLayout3"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+
+
+		<TextView
+		    android:id="@+id/labelUseSound"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginLeft="20dp"
+		    android:text="@string/settings_useSound"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+		<CheckBox
+		    android:id="@+id/checkBoxUseSound"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginRight="20dp" />
+
+	</RelativeLayout>
+	
+	<RelativeLayout
+	    android:id="@+id/relativeLayout4"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+		
+		<Button
+		    android:id="@+id/buttonChooseSound"
+		    android:layout_width="150dp"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginRight="20dp"
+		    android:text="@string/settings_chooseSound" />
+
+	</RelativeLayout>
+	
+    <TextView
+        android:id="@+id/clearHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_xl"
+        android:background="@color/headerbg"
+        android:paddingBottom="@dimen/padding_tiny"
+        android:paddingLeft="@dimen/padding_medium_large"
+        android:paddingTop="@dimen/padding_tiny"
+        android:text="@string/settings_clearHeader"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	<RelativeLayout
+	    android:id="@+id/relativeLayout5"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+
+
+		<TextView
+		    android:id="@+id/labelViewedOnClear"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentLeft="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginLeft="20dp"
+		    android:text="@string/settings_viewedOnClear"
+		    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+
+
+		<CheckBox
+		    android:id="@+id/checkBoxViewedOnClear"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_alignParentRight="true"
+		    android:layout_centerVertical="true"
+		    android:layout_marginRight="20dp" />
+
+	</RelativeLayout>
+	
+	<TextView
+	    android:id="@+id/serverHeader"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_marginTop="@dimen/padding_xl"
+	    android:background="@color/headerbg"
+	    android:paddingBottom="@dimen/padding_tiny"
+	    android:paddingLeft="@dimen/padding_medium_large"
+	    android:paddingTop="@dimen/padding_tiny"
+	    android:text="@string/settings_serverHeader"
+	    android:textAppearance="?android:attr/textAppearanceMedium" />
+	
+	<RelativeLayout
+	    android:id="@+id/relativeLayout6"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+
+	    <Button
+	        android:id="@+id/buttonReregister"
+	        android:layout_width="150dp"
+	        android:layout_height="wrap_content"
+	        android:layout_alignParentRight="true"
+	        android:layout_centerVertical="true"
+	        android:layout_marginRight="20dp"
+	        android:layout_marginTop="@dimen/padding_large"
+	        android:text="@string/settings_reregister" />
+
+	</RelativeLayout>
+
+</LinearLayout>
