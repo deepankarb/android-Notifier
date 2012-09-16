@@ -61,10 +61,10 @@ public class History extends FragmentActivity implements LoaderManager.LoaderCal
         
 		GCMRegistrar.checkDevice(this);
 		
-		String[] fromColumns = { "title", "message" };
-		int[] toViews = { R.id.text1, R.id.text2 };
+		String[] fromColumns = { "title", "message", "link" };
+		int[] toViews = { R.id.text1, R.id.text2, R.id.button1 };
 		
-		mAdapter = new MessageCursorAdapter(this, R.layout.simple_list_item_2, null, fromColumns, toViews, 0) {
+		mAdapter = new MessageCursorAdapter(this, R.layout.complex_list_item, null, fromColumns, toViews, 0) {
 			public boolean isEnabled(int position) {
 				return false;
 			}

@@ -21,6 +21,7 @@ public class UpdateReceiver extends BroadcastReceiver {
 	public void onReceive(Context context, Intent intent) {
 		String title = intent.getStringExtra("title");
 		String message = intent.getStringExtra("message");
+		String link = intent.getStringExtra("link");
 		Boolean silent = intent.getBooleanExtra("silent", false);
 		int viewed = intent.getIntExtra("viewed", 0);
 		
@@ -41,8 +42,15 @@ public class UpdateReceiver extends BroadcastReceiver {
 		
 		Context appContext = context.getApplicationContext();
 		
-		Intent notificationIntent = new Intent(context, History.class);
-		PendingIntent contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
+		PendingIntent contentIntent;
+		if (unviewedCount < 2 && link != null && !link.equals("")) {
+			Uri linkUri = Uri.parse(link);
+			Intent linkIntent = new Intent(Intent.ACTION_VIEW, linkUri);
+			contentIntent = PendingIntent.getActivity(context,  0, linkIntent, 0);
+		} else {		
+			Intent notificationIntent = new Intent(context, History.class);
+			contentIntent = PendingIntent.getActivity(context, 0, notificationIntent, 0);
+		}
 		
 		Builder builder = new Builder(appContext);
 		
@@ -90,6 +98,10 @@ public class UpdateReceiver extends BroadcastReceiver {
 		}
 
 		Notification notification = builder.getNotification();
+		
+		if (unviewedCount < 2 && link != null && !link.equals("")) {
+			notification.flags |= Notification.FLAG_AUTO_CANCEL;
+		}
 		
 		notificationManager.notify(NOTIFIER_ID, notification);
 	}

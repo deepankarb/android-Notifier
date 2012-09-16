@@ -12,7 +12,7 @@ public class MessagesOpenHelper extends SQLiteOpenHelper {
 
 	@Override
 	public void onCreate(SQLiteDatabase db) {
-		db.execSQL("CREATE TABLE messages (_id INTEGER PRIMARY KEY ASC AUTOINCREMENT, title VARCHAR, message VARCHAR, key VARCHAR DEFAULT NULL, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, viewed INTEGER DEFAULT 0)");
+		db.execSQL("CREATE TABLE messages (_id INTEGER PRIMARY KEY ASC AUTOINCREMENT, title VARCHAR, message VARCHAR, link VARCHAR, key VARCHAR DEFAULT NULL, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, viewed INTEGER DEFAULT 0)");
 	}
 
 	@Override

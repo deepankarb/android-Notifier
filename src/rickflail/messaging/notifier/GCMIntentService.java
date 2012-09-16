@@ -34,6 +34,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     	
         String title = extras.getString("title");
         String message = extras.getString("message");
+        String link = extras.getString("link");
         String key = extras.getString("key");
         if (key != null && key.equals("")) key = null;
         String silentStr = extras.getString("silent");
@@ -44,6 +45,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         ContentValues values = new ContentValues();
 		values.put("title", title);
 		values.put("message", message);
+		values.put("link", link);
         
         if (key != null) {
         	values.put("key", key);
@@ -56,7 +58,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         		
         		if (c.getCount() > 0) {
 	        		c.moveToFirst();
-	        		viewed = c.getInt(5);
+	        		viewed = c.getInt(6);
 	        		
 	        		values.put("viewed", viewed);
         		}
@@ -70,6 +72,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     	Intent update = new Intent(getString(R.string.update_intent));
     	update.putExtra("title", title);
     	update.putExtra("message", message);
+    	update.putExtra("link", link);
     	update.putExtra("silent", silent);
     	update.putExtra("viewed", viewed);
     	this.sendOrderedBroadcast(update, getString(R.string.update_permission));
