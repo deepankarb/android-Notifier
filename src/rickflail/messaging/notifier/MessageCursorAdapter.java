@@ -27,7 +27,7 @@ public class MessageCursorAdapter extends SimpleCursorAdapter {
         TextView tv;
         Button btn;
 
-    	boolean viewed = (cursor.getInt(6) == 1);
+    	boolean viewed = (cursor.getInt(7) == 1);
 
         for (int i = 0; i < count; i++) {
             final View v = view.findViewById(to[i]);
@@ -40,6 +40,14 @@ public class MessageCursorAdapter extends SimpleCursorAdapter {
             			btn.setVisibility(View.GONE);
             			btn.setOnClickListener(null);
             		} else {
+            			String linkText = cursor.getString(4);
+            			
+            			if (linkText != null && !linkText.equals("")) {
+            				btn.setText(linkText);
+            			} else {
+            				btn.setText(view.getResources().getText(R.string.link));
+            			}
+            			
             			btn.setVisibility(View.VISIBLE);
             			btn.setOnClickListener(openLink(context, link));
             			if (!viewed) {

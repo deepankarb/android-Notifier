@@ -1,10 +1,16 @@
 package rickflail.messaging.notifier;
 
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import org.apache.commons.*;
 
 import com.google.android.gcm.GCMBaseIntentService;
 
@@ -35,10 +41,25 @@ public class GCMIntentService extends GCMBaseIntentService {
         String title = extras.getString("title");
         String message = extras.getString("message");
         String link = extras.getString("link");
+        String linkText = "";
         String key = extras.getString("key");
         if (key != null && key.equals("")) key = null;
         String silentStr = extras.getString("silent");
         Boolean silent = (silentStr != null && !silentStr.equals("") && !silentStr.equalsIgnoreCase("false"));
+        
+        Pattern linkPattern = Pattern.compile("^\\[([^\\]]+)\\]\\(([^\\) ]+).*\\)$");
+        Matcher linkMatcher = linkPattern.matcher(link);
+        if (linkMatcher.matches()) {
+        	linkText = linkMatcher.group(1);
+        	link = linkMatcher.group(2);
+        }
+        
+        try {
+        	URL u = new URL(link);
+            u.toURI();
+        } catch(Exception ex) {
+        	link = "";
+        }
         
         int viewed = 0;
         
@@ -46,6 +67,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 		values.put("title", title);
 		values.put("message", message);
 		values.put("link", link);
+		values.put("linkText", linkText);
         
         if (key != null) {
         	values.put("key", key);
@@ -58,7 +80,7 @@ public class GCMIntentService extends GCMBaseIntentService {
         		
         		if (c.getCount() > 0) {
 	        		c.moveToFirst();
-	        		viewed = c.getInt(6);
+	        		viewed = c.getInt(7);
 	        		
 	        		values.put("viewed", viewed);
         		}
@@ -73,6 +95,7 @@ public class GCMIntentService extends GCMBaseIntentService {
     	update.putExtra("title", title);
     	update.putExtra("message", message);
     	update.putExtra("link", link);
+    	update.putExtra("linkText", linkText);
     	update.putExtra("silent", silent);
     	update.putExtra("viewed", viewed);
     	this.sendOrderedBroadcast(update, getString(R.string.update_permission));
