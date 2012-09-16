@@ -34,6 +34,7 @@ public class UpdateReceiver extends BroadcastReceiver {
 		int unviewedCount = c.getInt(0);
 		
 		prefs = context.getSharedPreferences(context.getString(R.string.prefs), Context.MODE_PRIVATE);
+		Boolean immediateLink = prefs.getBoolean("immediateLink", false);
 		
 		NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 		
@@ -43,7 +44,7 @@ public class UpdateReceiver extends BroadcastReceiver {
 		Context appContext = context.getApplicationContext();
 		
 		PendingIntent contentIntent;
-		if (unviewedCount < 2 && link != null && !link.equals("")) {
+		if (immediateLink && unviewedCount < 2 && link != null && !link.equals("")) {
 			Uri linkUri = Uri.parse(link);
 			Intent linkIntent = new Intent(Intent.ACTION_VIEW, linkUri);
 			contentIntent = PendingIntent.getActivity(context,  0, linkIntent, 0);

@@ -26,6 +26,7 @@ public class Settings extends Activity {
 	CheckBox cbVibrate;
 	CheckBox cbUseSound;
 	CheckBox cbViewedOnClear;
+	CheckBox cbImmediateLink;
 	Button btnReregister;
 	Button btnChooseSound;
 	
@@ -47,6 +48,7 @@ public class Settings extends Activity {
         Boolean vibrate = prefs.getBoolean("vibrate", true);
         Boolean useSound = prefs.getBoolean("useSound", true);
         Boolean viewedOnClear = prefs.getBoolean("viewedOnClear", true);
+        Boolean immediateLink = prefs.getBoolean("immediateLink", false);
         
         cbFlashLED = (CheckBox) findViewById(R.id.checkBoxFlashLED);
         cbFlashLED.setChecked(flashLED);
@@ -66,6 +68,10 @@ public class Settings extends Activity {
         cbViewedOnClear = (CheckBox) findViewById(R.id.checkBoxViewedOnClear);
         cbViewedOnClear.setChecked(viewedOnClear);
         cbViewedOnClear.setOnCheckedChangeListener(toggleCB("viewedOnClear"));
+        
+        cbImmediateLink = (CheckBox) findViewById(R.id.checkBoxImmediateLink);
+        cbImmediateLink.setChecked(immediateLink);
+        cbImmediateLink.setOnCheckedChangeListener(toggleCB("immediateLink"));
         
         btnReregister = (Button) findViewById(R.id.buttonReregister);
         btnReregister.setOnClickListener(reregister(this));

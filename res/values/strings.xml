@@ -13,12 +13,14 @@
     <string name="settings_alertHeader">Alert</string>
     <string name="settings_clearHeader">On Notification Clear</string>
     <string name="settings_serverHeader">GCM Server</string>
+    <string name="settings_linkHeader">On Linked Notification Click</string>
     <string name="settings_reregister">Re-Register</string>
     <string name="settings_flashLED">Flash LED</string>
     <string name="settings_vibrate">Vibrate</string>
     <string name="settings_useSound">Play Sound</string>
     <string name="settings_chooseSound">Choose Sound</string>
     <string name="settings_viewedOnClear">Mark as Read</string>
+    <string name="settings_immediateLink">Go Straight to Link</string>
     
     <string name="update_intent">rickflail.messaging.notifier.UPDATE</string>
     <string name="update_permission">rickflail.messaging.notifier.permission.UPDATE</string>

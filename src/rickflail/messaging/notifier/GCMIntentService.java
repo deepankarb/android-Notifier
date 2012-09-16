@@ -8,9 +8,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
-import android.net.Uri;
 import android.os.Bundle;
-import org.apache.commons.*;
 
 import com.google.android.gcm.GCMBaseIntentService;
 
@@ -47,11 +45,13 @@ public class GCMIntentService extends GCMBaseIntentService {
         String silentStr = extras.getString("silent");
         Boolean silent = (silentStr != null && !silentStr.equals("") && !silentStr.equalsIgnoreCase("false"));
         
-        Pattern linkPattern = Pattern.compile("^\\[([^\\]]+)\\]\\(([^\\) ]+).*\\)$");
-        Matcher linkMatcher = linkPattern.matcher(link);
-        if (linkMatcher.matches()) {
-        	linkText = linkMatcher.group(1);
-        	link = linkMatcher.group(2);
+        if (link != null && !link.equals("")) {
+        	Pattern linkPattern = Pattern.compile("^\\[([^\\]]+)\\]\\(([^\\) ]+).*\\)$");
+        	Matcher linkMatcher = linkPattern.matcher(link);
+        	if (linkMatcher.matches()) {
+        		linkText = linkMatcher.group(1);
+        		link = linkMatcher.group(2);
+        	}
         }
         
         try {
